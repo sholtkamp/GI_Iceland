@@ -1,7 +1,8 @@
 $(document).ready(function () {
 
-    $('.sidebar-header').on('click', function () {
-        $('#sidebar').toggleClass('active');
+    $('#sidebar').on('click', function () {
+       if(!$('#sidebar').hasClass('active')){
+        $('#sidebar').toggleClass('active')
+       }
     });
-
 });
