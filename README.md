@@ -17,3 +17,12 @@ This app was built during the Winterterm 2018/2019 for the studyproject in 'Geoi
 
 - Visualization of data (6 datasets of iceland provided)
 - Educational information and behavioural advice regarding natural disasters (especially volcanic eruptions)
+- Up-to-date information of recent volcanic events provided via curated twitter feed
+<br>
+
+## Technologies:
+- HTML/CSS/JS
+- Leaflet
+- Bootstrap
+- R
+- [Piktochart.com](https://piktochart.com/)
