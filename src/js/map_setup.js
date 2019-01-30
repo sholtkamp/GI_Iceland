@@ -70,7 +70,7 @@ async function createWaterFeatures() {
         "( dbpedia:Drain )"+
     "}"+
         "?s geo:hasGeometry ?line." +
-        //"FILTER regex(str(?line), \"volcano:line\") }"
+        //"FILTER regex(str(?line), \"volcano:line\") }"+
         "?line geo:asWKT ?geometry." +
         "?s dc:name ?name" +
         "}";
