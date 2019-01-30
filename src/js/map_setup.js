@@ -14,6 +14,13 @@ L.control.zoom({
   position: 'topright'
 }).addTo(map);
 
+//add location finder
+var lc = L.control.locate({
+  position: 'topleft',
+  strings: {
+    setView: "once"
+  }
+}).addTo(map);
 
 // add search in top left corner
 map.addControl(new L.Control.Search({
@@ -26,11 +33,3 @@ map.addControl(new L.Control.Search({
   autoType: false,
   minLength: 2
 }));
-
-//add location finder
-var lc = L.control.locate({
-  position: 'topleft',
-  strings: {
-    setView: "once"
-  }
-}).addTo(map);
