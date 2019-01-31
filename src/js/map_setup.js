@@ -143,9 +143,6 @@ async function queryTripleStore(qry) {
 
 // function to create feature from json
 let _createGeojsonFeaturen = (entry) => {
-    let temp = entry.geometry.value.split('(');
-    let coordinatePairs = temp[1].split(',');
-    let coordinates =
     let geojsonFeature = {
         "type": "Feature",
         "properties": {
@@ -163,6 +160,14 @@ let _createGeojsonFeaturen = (entry) => {
 };
 
 let _createPolylineFeaturen = (entry) => {
+    let temp = entry.geometry.value.split('(');
+    let coordinatePairs = temp[1].split(',');
+    let coordinates = [];
+    coordinatePairs.forEach(pair =>{
+       let coordinatePair = [parseFloat(pair.split(' ')[0]), parseFloat(pair.split(' ')[1])];
+       coordinates.push(coordinatePair);
+    } );
+    debugger;
     let geojsonFeature = {
         "type": "Feature",
         "properties": {
@@ -173,7 +178,7 @@ let _createPolylineFeaturen = (entry) => {
 
         "geometry": {
             "type": "LineString",
-            "coordinates": [parseFloat(entry.geometry.value.split('(')[1].split(' ')[0]), parseFloat(entry.geometry.value.split('(')[1].split(' ')[1])]
+            "coordinates": coordinates
         }
     };
     console.log(geojsonFeature);
