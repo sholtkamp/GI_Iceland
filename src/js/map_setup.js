@@ -2,18 +2,29 @@
 let map = L.map('map_div', {zoomControl: false});
 map.setView([64.759782, -18.423403], 6.4);
 
-//add tile layer to map
-
+//add tile layers
 var mapLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map)
+
+var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 });
 
-map.addLayer(mapLayer);
+//group tile layers as baseMaps
+let baseMaps = {
+  "OSM" : mapLayer,
+  "Image" : Esri_WorldImagery
+}
 
-// add zoom control in right top corner
-L.control.zoom({
-    position: 'topright'
-}).addTo(map);
+
+//set global variables for layers
+let volcanoLayer
+let placeLayer
+let waterLayer
+let roadLayer
+let natureLayer
+
 
 //add location finder
 var lc = L.control.locate({
@@ -23,7 +34,7 @@ var lc = L.control.locate({
   }
 }).addTo(map);
 
-// add search in top left corner
+//add search in top left corner
 map.addControl(new L.Control.Search({
     url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
     jsonpParam: 'json_callback',
@@ -36,16 +47,8 @@ map.addControl(new L.Control.Search({
 }));
 
 
-//add location finder
-let lc = L.control.locate({
-    position: 'topleft',
-    strings: {
-        setView: "once"
-    }
-}).addTo(map);
-
+//function used to create Volcanos layer from RDF
 createVolcanoFeatures();
-
 async function createVolcanoFeatures() {
     let volcanoQuery = "SELECT DISTINCT * WHERE {\n" +
         "?s volcano:vei ?o." +
@@ -59,12 +62,12 @@ async function createVolcanoFeatures() {
         popupAnchor: [1, -24],
         iconUrl: '../img/volcanoIcon.png'
     });
-    let volcanoLayer = L.geoJSON('', {
+    volcanoLayer = L.geoJSON('', {
         id: 'volcanoLayer',
         pointToLayer: function (feature, latlng) {
             return L.marker(latlng, {icon: volcanoIcon});
         }
-    }).addTo(map);
+    })
     queryTripleStore(volcanoQuery).then((volcanos) => {
         volcanos.results.bindings.forEach(volcano => {
             volcanoLayer.addData(_createGeojsonFeaturen(volcano));
@@ -75,6 +78,8 @@ async function createVolcanoFeatures() {
     });
 };
 
+
+//function used to create Cities layer from RDF
 createPlacesFeatures(); //https://stackoverflow.com/questions/30501124/or-in-a-sparql-query
 async function createPlacesFeatures() {
     let placesQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -90,12 +95,12 @@ async function createPlacesFeatures() {
         popupAnchor: [-6, -24],
         iconUrl: '../img/townIcon.png'
     });
-    let placeLayer = L.geoJSON('', {
+    placeLayer = L.geoJSON('', {
         id: 'placeLayer',
         pointToLayer: function (feature, latlng) {
             return L.marker(latlng, {icon: placeIcon});
         }
-    }).addTo(map);
+    })
     queryTripleStore(placesQuery).then((places) => {
         places.results.bindings.forEach(place => {
             placeLayer.addData(_createGeojsonFeaturen(place));
@@ -107,6 +112,7 @@ async function createPlacesFeatures() {
 };
 
 
+//function used to create Waterbodies layer from RDF
 createWaterFeatures();
 async function createWaterFeatures() {
     let waterQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -123,10 +129,10 @@ async function createWaterFeatures() {
         "opacity": 0.75
     };
 
-    let waterLayer = L.geoJSON('', {
+    waterLayer = L.geoJSON('', {
         id: 'waterLayer',
         style: waterStyle
-    }).addTo(map);
+    })
     queryTripleStore(waterQuery).then((waters) => {
         waters.results.bindings.forEach(water => {
             waterLayer.addData(_createPolylineFeaturen(water));
@@ -137,6 +143,8 @@ async function createWaterFeatures() {
     });
 };
 
+
+//function used to create Roads layer from RDF
 createRoadFeatures();
 async function createRoadFeatures() {
     let roadQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -153,12 +161,10 @@ async function createRoadFeatures() {
         "opacity": 0.85
     };
 
-    let roadLayer = L.geoJSON('', {
+    roadLayer = L.geoJSON('', {
         id: 'roadLayer',
         style: roadStyle
-
-
-    }).addTo(map);
+    })
     queryTripleStore(roadQuery).then((roads) => {
         roads.results.bindings.forEach(road => {
             roadLayer.addData(_createPolylineFeaturen(road));
@@ -170,6 +176,7 @@ async function createRoadFeatures() {
 };
 
 
+//function used to query the triple store for stored data
 async function queryTripleStore(qry) {
     const baseUrl = 'http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG1&format=application/json&timeout=0&debug=on&query='
     const q = `
@@ -186,6 +193,7 @@ async function queryTripleStore(qry) {
     const json = await response.json();
     return json;
 }
+
 
 // function to create feature from json
 let _createGeojsonFeaturen = (entry) => {
@@ -205,6 +213,7 @@ let _createGeojsonFeaturen = (entry) => {
     return geojsonFeature;
 };
 
+//function used to create polyline features 
 let _createPolylineFeaturen = (entry) => {
     let temp = entry.geometry.value.split('(');
     let coordinatePairs = temp[1].split(',');
@@ -230,13 +239,15 @@ let _createPolylineFeaturen = (entry) => {
     return geojsonFeature;
 };
 
-
+//group overlay maps generated from RDF to overlayMaps
 var overlayMaps = {
   "Cities" : placeLayer,
+  "Roads" : roadLayer,
   "Volcanos" : volcanoLayer,
   "Waterbodies" : waterLayer,
-  "Natural Features" : natureLayer,
+  //"Natural Features" : natureLayer,
 }
 
-L.control.layers(mapLayer).addTo(map);
 
+//add layer control to map
+L.control.layers(baseMaps, overlayMaps).addTo(map);
