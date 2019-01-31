@@ -35,7 +35,7 @@ let lc = L.control.locate({
     }
 }).addTo(map);
 
-//createVolcanoFeatures();
+createVolcanoFeatures();
 
 async function createVolcanoFeatures() {
     let volcanoQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -44,12 +44,17 @@ async function createVolcanoFeatures() {
         "?point geo:asWKT ?geometry." +
         "?s dc:name ?name" +
         "}";
+    let volcanoIcon = new L.Icon({
+        iconSize: [20, 20],
+        iconAnchor: [13, 27],
+        popupAnchor: [1, -24],
+        iconUrl: '../img/volcanoIcon.png'
+    });
     let volcanoLayer = L.geoJSON('', {
-        id: 'jsonLayer',
+        id: 'volcanoLayer',
         pointToLayer: function (feature, latlng) {
-            return L.marker(latlng,);
+            return L.marker(latlng, {icon: volcanoIcon});
         }
-
     }).addTo(map);
     queryTripleStore(volcanoQuery).then((volcanos) => {
         volcanos.results.bindings.forEach(volcano => {
@@ -60,17 +65,44 @@ async function createVolcanoFeatures() {
         return L.Util.template('<p><b>Name : </b>{name}<br>', layer.feature.properties);
     });
 };
+createPlacesFeatures(); //https://stackoverflow.com/questions/30501124/or-in-a-sparql-query
+async function createPlacesFeatures() {
+    let placesQuery = "SELECT DISTINCT * WHERE {\n" +
+        "?s a ?towntype ." +
+        "FILTER (?towntype IN (dbpedia:Suburb , dbpedia:Village , dbpedia:Hamlet, dbpedia:Town, dbpedia:City ) )"+
+        "?s geo:hasGeometry ?point." +
+        "?point geo:asWKT ?geometry." +
+        "?s dc:name ?name" +
+        "}";
+    let placeIcon = new L.Icon({
+        iconSize: [5, 5],
+        iconAnchor: [13, 27],
+        popupAnchor: [-6, -24],
+        iconUrl: '../img/townIcon.png'
+    });
+    let placeLayer = L.geoJSON('', {
+        id: 'volcanoLayer',
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng, {icon: placeIcon});
+        }
+    }).addTo(map);
+    queryTripleStore(placesQuery).then((places) => {
+        places.results.bindings.forEach(place => {
+            placeLayer.addData(_createGeojsonFeaturen(place));
+        });
+    });
+    placeLayer.bindPopup((layer) => {
+        return L.Util.template('<p><b>Name : </b>{name}<br>', layer.feature.properties);
+    });
+};
+
 
 createWaterFeatures();
 async function createWaterFeatures() {
     let waterQuery = "SELECT DISTINCT * WHERE {\n" +
-        "VALUES (?type) {"+
-        "( dbpedia:River )"+
-        "( dbpedia:Stream )"+
-        "( dbpedia:Drain )"+
-    "}"+
+        "?s a ?watertype ." +
+        "FILTER (?watertype IN (dbpedia:River , dbpedia:Stream , dbpedia:Drain , dbpedia:Dam , dbpedia:Dock  ) )"+
         "?s geo:hasGeometry ?line." +
-        //"FILTER regex(str(?line), \"volcano:line\") }"+
         "?line geo:asWKT ?geometry." +
         "?s dc:name ?name" +
         "}";
@@ -111,7 +143,9 @@ async function queryTripleStore(qry) {
 
 // function to create feature from json
 let _createGeojsonFeaturen = (entry) => {
-
+    let temp = entry.geometry.value.split('(');
+    let coordinatePairs = temp[1].split(',');
+    let coordinates =
     let geojsonFeature = {
         "type": "Feature",
         "properties": {
@@ -138,7 +172,7 @@ let _createPolylineFeaturen = (entry) => {
         },
 
         "geometry": {
-            "type": "Polyline",
+            "type": "LineString",
             "coordinates": [parseFloat(entry.geometry.value.split('(')[1].split(' ')[0]), parseFloat(entry.geometry.value.split('(')[1].split(' ')[1])]
         }
     };
