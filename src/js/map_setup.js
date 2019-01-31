@@ -46,7 +46,7 @@ async function createVolcanoFeatures() {
         "}";
     let volcanoIcon = new L.Icon({
         iconSize: [20, 20],
-        iconAnchor: [13, 27],
+        iconAnchor: [6, 6],
         popupAnchor: [1, -24],
         iconUrl: '../img/volcanoIcon.png'
     });
@@ -65,6 +65,7 @@ async function createVolcanoFeatures() {
         return L.Util.template('<p><b>Name : </b>{name}<br>', layer.feature.properties);
     });
 };
+
 createPlacesFeatures(); //https://stackoverflow.com/questions/30501124/or-in-a-sparql-query
 async function createPlacesFeatures() {
     let placesQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -76,12 +77,12 @@ async function createPlacesFeatures() {
         "}";
     let placeIcon = new L.Icon({
         iconSize: [5, 5],
-        iconAnchor: [13, 27],
+        iconAnchor: [0, 0],
         popupAnchor: [-6, -24],
         iconUrl: '../img/townIcon.png'
     });
     let placeLayer = L.geoJSON('', {
-        id: 'volcanoLayer',
+        id: 'placeLayer',
         pointToLayer: function (feature, latlng) {
             return L.marker(latlng, {icon: placeIcon});
         }
@@ -106,15 +107,18 @@ async function createWaterFeatures() {
         "?line geo:asWKT ?geometry." +
         "?s dc:name ?name" +
         "}";
-    let waterLayer = L.geoJSON('', {
-        id: 'jsonLayer',
-        pointToLayer: function (feature, latlng) {
-            return L.marker(latlng,);
-        }
 
+    let waterStyle = {
+        "color": "blue",
+        "weight": 2,
+        "opacity": 0.75
+    };
+
+    let waterLayer = L.geoJSON('', {
+        id: 'waterLayer',
+        style: waterStyle
     }).addTo(map);
     queryTripleStore(waterQuery).then((waters) => {
-        debugger;
         waters.results.bindings.forEach(water => {
             waterLayer.addData(_createPolylineFeaturen(water));
         });
@@ -123,6 +127,39 @@ async function createWaterFeatures() {
         return L.Util.template('<p><b>Name : </b>{name}<br>', layer.feature.properties);
     });
 };
+
+createRoadFeatures();
+async function createRoadFeatures() {
+    let roadQuery = "SELECT DISTINCT * WHERE {\n" +
+        "?s a ?roadtype ." +
+        "FILTER (?roadtype IN (volcano:Residential ,volcano:Primary_link , volcano:Tertiary , volcano:Unclassified , volcano:Service , volcano:Track , volcano:Path , volcano:Bridleway , volcano:Byway ,  volcano:Crossing , volcano:Footway , volcano:Construction , volcano:Cycleway , volcano:Ford , volcano:Living_street , volcano:Minor , volcano:Park , volcano:Pedestrian , volcano:Primary ,  volcano:Road,  volcano:Secondary ,volcano:Secondary_link , volcano:Steps ,  volcano:Services , volcano:Trunk , volcano:Trunk_link , volcano:Unsurfaced ) )"+
+        "?s geo:hasGeometry ?line." +
+        "?line geo:asWKT ?geometry." +
+        "?s dc:name ?name" +
+        "}";
+
+    let roadStyle = {
+        "color": "grey",
+        "weight": 1,
+        "opacity": 0.85
+    };
+
+    let roadLayer = L.geoJSON('', {
+        id: 'roadLayer',
+        style: roadStyle
+
+
+    }).addTo(map);
+    queryTripleStore(roadQuery).then((roads) => {
+        roads.results.bindings.forEach(road => {
+            roadLayer.addData(_createPolylineFeaturen(road));
+        });
+    });
+    roadLayer.bindPopup((layer) => {
+        return L.Util.template('<p><b>Name : </b>{name}<br>', layer.feature.properties);
+    });
+};
+
 
 async function queryTripleStore(qry) {
     const baseUrl = 'http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG1&format=application/json&timeout=0&debug=on&query='
@@ -167,7 +204,6 @@ let _createPolylineFeaturen = (entry) => {
        let coordinatePair = [parseFloat(pair.split(' ')[0]), parseFloat(pair.split(' ')[1])];
        coordinates.push(coordinatePair);
     } );
-    debugger;
     let geojsonFeature = {
         "type": "Feature",
         "properties": {
