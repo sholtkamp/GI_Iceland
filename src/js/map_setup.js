@@ -1,35 +1,58 @@
 //initiate map
-let map = L.map('map_div', {zoomControl: false});
+let map = L.map('map_div', { zoomControl: false });
 map.setView([64.759782, -18.423403], 6.4);
 
-//add tile layer to map
-
+//add tile layers
 var mapLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+
+  attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map)
+
+var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 });
 
-map.addLayer(mapLayer);
+L.control.scale().addTo(map);
 
-// add zoom control in right top corner
-L.control.zoom({
-    position: 'topright'
-}).addTo(map);
+//group tile layers as baseMaps
+let baseMaps = {
+  "OSM": mapLayer,
+  "Image": Esri_WorldImagery
+}
+
+
+//set global variables for layers
+let volcanoLayer
+let placeLayer
+let waterLayer
+let roadLayer
+let natureLayer
+
+
 
 // add search in top left corner
+var lc = L.control.locate({
+  position: 'topleft',
+  strings: {
+    setView: "once"
+  }
+}).addTo(map);
+
+//add search in top left corner
 map.addControl(new L.Control.Search({
-    url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
-    jsonpParam: 'json_callback',
-    propertyName: 'display_name',
-    propertyLoc: ['lat', 'lon'],
-    marker: L.marker([0, 0]),
-    autoCollapse: true,
-    autoType: false,
-    minLength: 2
+  url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
+  jsonpParam: 'json_callback',
+  propertyName: 'display_name',
+  propertyLoc: ['lat', 'lon'],
+  marker: L.marker([0, 0]),
+  autoCollapse: true,
+  autoType: false,
+  minLength: 2
 }));
 
-let volcanoLayer;
-createVolcanoFeatures();
 
+//function used to create Volcanos layer from RDF
+createVolcanoFeatures();
 async function createVolcanoFeatures() {
     let volcanoQuery = "SELECT DISTINCT * WHERE {\n" +
         "?s volcano:vei ?o." +
@@ -56,9 +79,10 @@ async function createVolcanoFeatures() {
     });
     volcanoLayer.bindPopup((layer) => {
         return L.Util.template('<p><b>Name : </b>{name}<br>', layer.feature.properties);
-    });
-};
-let placeLayer;
+      
+      
+
+//function used to create Cities layer from RDF
 createPlacesFeatures(); //https://stackoverflow.com/questions/30501124/or-in-a-sparql-query
 async function createPlacesFeatures() {
     let placesQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -87,12 +111,11 @@ async function createPlacesFeatures() {
     });
     placeLayer.bindPopup((layer) => {
         return L.Util.template('<p><b>Name : </b>{name}<br>', layer.feature.properties);
-    });
-};
 
-let waterLayer;
+
+
+//function used to create Waterbodies layer from RDF
 createWaterFeatures();
-
 async function createWaterFeatures() {
     let waterQuery = "SELECT DISTINCT * WHERE {\n" +
         "?s a ?watertype ." +
@@ -120,12 +143,12 @@ async function createWaterFeatures() {
     });
     waterLayer.bindPopup((layer) => {
         return L.Util.template('<p><b>Name : </b>{name}<br>', layer.feature.properties);
-    });
-};
 
+
+
+//function used to create Nature layer from RDF
 let naturalLayer;
 createNaturalFeatures();
-
 async function createNaturalFeatures() {
     let naturalQuery = "SELECT DISTINCT * WHERE {\n" +
         "?s a ?volcano ." +
@@ -150,9 +173,10 @@ async function createNaturalFeatures() {
     });
 };
 
-let roadLayer;
-createRoadFeatures();
 
+
+//function used to create Roads layer from RDF
+createRoadFeatures();
 async function createRoadFeatures() {
     let roadQuery = "SELECT DISTINCT * WHERE {\n" +
         "?s a ?roadtype ." +
@@ -181,12 +205,13 @@ async function createRoadFeatures() {
     });
     roadLayer.bindPopup((layer) => {
         return L.Util.template('<p><b>Name : </b>{name}<br>', layer.feature.properties);
-    });
-};
 
+
+
+//function used to query the triple store for stored data
 async function queryTripleStore(qry) {
-    const baseUrl = 'http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG1&format=application/json&timeout=0&debug=on&query='
-    const q = `
+  const baseUrl = 'http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG1&format=application/json&timeout=0&debug=on&query='
+  const q = `
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             PREFIX geo: <http://www.opengis.net/ont/geosparql#>
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -196,29 +221,31 @@ async function queryTripleStore(qry) {
         ${qry}
     `;
 
-    const response = await fetch(baseUrl + encodeURIComponent(q));
-    const json = await response.json();
-    return json;
+  const response = await fetch(baseUrl + encodeURIComponent(q));
+  const json = await response.json();
+  return json;
 }
+
 
 // function to create feature from json
 let _createGeojsonFeaturen = (entry) => {
-    let geojsonFeature = {
-        "type": "Feature",
-        "properties": {
-            "name": entry.name.value,
-            "id": entry.s.value,
-            "entry": entry
-        },
+  let geojsonFeature = {
+    "type": "Feature",
+    "properties": {
+      "name": entry.name.value,
+      "id": entry.s.value,
+      "entry": entry
+    },
 
-        "geometry": {
-            "type": "Point",
-            "coordinates": [parseFloat(entry.geometry.value.split('(')[1].split(' ')[0]), parseFloat(entry.geometry.value.split('(')[1].split(' ')[1])]
-        }
-    };
-    return geojsonFeature;
+    "geometry": {
+      "type": "Point",
+      "coordinates": [parseFloat(entry.geometry.value.split('(')[1].split(' ')[0]), parseFloat(entry.geometry.value.split('(')[1].split(' ')[1])]
+    }
+  };
+  return geojsonFeature;
 };
 
+//function used to create polyline features 
 let _createPolylineFeaturen = (entry) => {
     let temp = entry.geometry.value.split('(');
     let coordinatePairs = temp[1].split(',');
@@ -368,3 +395,6 @@ var overlayMaps = {
 }
 L.control.layers(mapLayer).addTo(map);
 
+
+//add layer control to map
+L.control.layers(baseMaps, overlayMaps).addTo(map);

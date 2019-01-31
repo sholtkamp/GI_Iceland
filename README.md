@@ -25,4 +25,5 @@ This app was built during the Winterterm 2018/2019 for the studyproject in 'Geoi
 - Leaflet
 - Bootstrap
 - R
+- rdflib
 - [Piktochart.com](https://piktochart.com/)
