@@ -1,5 +1,5 @@
 //initiate map
-let map = L.map('map_div', { zoomControl: false });
+let map = L.map('map_div', { zoomControl: true });
 map.setView([64.759782, -18.423403], 6.4);
 
 //add tile layers
@@ -398,6 +398,3 @@ let _createPoints = (entry) => {
   let cordinates = [parseFloat(entry.geometry.value.split('(')[1].split(' ')[1]), parseFloat(entry.geometry.value.split('(')[1].split(' ')[0]), parseFloat(entry.o.value) / 7];
   return cordinates;
 };
-
-
-
