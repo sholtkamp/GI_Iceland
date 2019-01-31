@@ -52,7 +52,11 @@ map.addControl(new L.Control.Search({
 }));
 
 
-//function used to create Volcanos layer from RDF
+/** Function used to create volcanoes layer from RDF
+ * calls queryTripleStore function to get RDF triples
+ * calls _createGeojsonFeaturen to convert RDF triples to polylines
+ * adds layer to map
+ * **/
 createVolcanoFeatures();
 async function createVolcanoFeatures() {
   let volcanoQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -84,7 +88,11 @@ async function createVolcanoFeatures() {
 };
 
 
-//function used to create Cities layer from RDF
+/** Function used to create cities layer from RDF
+ * calls queryTripleStore function to get RDF triples
+ * calls _createGeojsonFeaturen to convert RDF triples to polylines
+ * adds layer to map
+ * **/
 createPlacesFeatures(); //https://stackoverflow.com/questions/30501124/or-in-a-sparql-query
 async function createPlacesFeatures() {
   let placesQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -117,7 +125,11 @@ async function createPlacesFeatures() {
 };
 
 
-//function used to create Waterbodies layer from RDF
+/** Function used to create waterbbodies layer from RDF
+ * calls queryTripleStore function to get RDF triples
+ * calls _createPolylineFeaturen to convert RDF triples to polylines
+ * adds layer to map
+ * **/
 createWaterFeatures();
 async function createWaterFeatures() {
   let waterQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -149,7 +161,12 @@ async function createWaterFeatures() {
   });
 };
 
-//function used to create Nature layer from RDF
+
+/** Function used to create nature layer from RDF
+ * calls queryTripleStore function to get RDF triples
+ * calls _createPolygonFeaturen to convert RDF triples to polylines
+ * adds layer to map
+ * **/
 let naturalLayer;
 createNaturalFeatures();
 async function createNaturalFeatures() {
@@ -176,8 +193,11 @@ async function createNaturalFeatures() {
 };
 
 
-
-//function used to create Roads layer from RDF
+/** Function used to create Roads layer from RDF
+ * calls queryTripleStore function to get RDF triples
+ * calls _createPolylineFeaturen to convert RDF triples to polylines
+ * adds layer to map
+ * **/
 createRoadFeatures();
 async function createRoadFeatures() {
   let roadQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -210,8 +230,12 @@ async function createRoadFeatures() {
   });
 };
 
-//function used to query the triple store for stored data
-async function queryTripleStore(qry) {
+
+/** Function that sends query with basic information (baseURL of triple store, prefixes)
+ * input: body of query
+ * output: json with triples and resolved variables
+ * **/
+async function queryTripleStore(query) {
   const baseUrl = 'http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG1&format=application/json&timeout=0&debug=on&query='
   const q = `
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -220,7 +244,7 @@ async function queryTripleStore(qry) {
             PREFIX dc: <http://purl.org/dc/elements/1.1/#>
             PREFIX dbpedia: <http://dbpedia.org/ontology/#>
             PREFIX volcano: <http://course.geoinfo2018.org/g1#>
-        ${qry}
+        ${query}
     `;
 
   const response = await fetch(baseUrl + encodeURIComponent(q));
@@ -229,7 +253,10 @@ async function queryTripleStore(qry) {
 }
 
 
-// function to create feature from json
+/** Function that creates point feature
+ * input: single json entry queried from triple store
+ * output: point feature with coordinates and attributes
+ * **/
 let _createGeojsonFeaturen = (entry) => {
   let geojsonFeature = {
     "type": "Feature",
@@ -247,7 +274,10 @@ let _createGeojsonFeaturen = (entry) => {
   return geojsonFeature;
 };
 
-//function used to create polyline features 
+/** Function that creates polyline feature
+ * input: single json entry queried from triple store
+ * output: polyline feature with coordinates and attributes
+ * **/
 let _createPolylineFeaturen = (entry) => {
   let temp = entry.geometry.value.split('(');
   let coordinatePairs = temp[1].split(',');
@@ -272,6 +302,10 @@ let _createPolylineFeaturen = (entry) => {
 
   return geojsonFeature;
 };
+/** Function that creates polygon feature
+ * input: single json entry queried from triple store
+ * output: polygon feature with coordinates and attributes
+ * **/
 let _createPolygonFeaturen = (entry) => {
   let temp = entry.geometry.value.split('(');
   let coordinatePairs = temp[1].split(',');
@@ -308,68 +342,10 @@ var overlayMaps = {
 //add layer control to map
 let layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map)
 
-let volcanoPolygons;
-let latlngs = [];
-
-let vei1 = new L.Icon({
-  iconSize: [110, 110],
-  iconAnchor: [-5, -5],
-  popupAnchor: [-6, -24],
-  iconUrl: '../img/volcanoBuffer.png'
-});
-
-let vei2 = new L.Icon({
-  iconSize: [200, 200],
-  iconAnchor: [-50, -50],
-  popupAnchor: [-6, -24],
-  iconUrl: '../img/volcanoBuffer.png'
-});
-
-let vei3 = new L.Icon({
-  iconSize: [400, 400],
-  iconAnchor: [150, 150],
-  popupAnchor: [-6, -24],
-  iconUrl: '../img/volcanoBuffer.png'
-});
-
-let vei4 = new L.Icon({
-  iconSize: [500, 5000],
-  iconAnchor: [250, 250],
-  popupAnchor: [-6, -24],
-  iconUrl: '../img/volcanoBuffer.png'
-});
-
-let vei5 = new L.Icon({
-  iconSize: [7500, 7500],
-  iconAnchor: [3700, 3700],
-  popupAnchor: [-6, -24],
-  iconUrl: '../img/volcanoBuffer.png'
-});
-
-let vei6 = new L.Icon({
-  iconSize: [10000, 10000],
-  iconAnchor: [5000, 5000],
-  popupAnchor: [-6, -24],
-  iconUrl: '../img/volcanoBuffer.png'
-});
-async function queryTripleStore(qry) {
-  const baseUrl = 'http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG1&format=application/json&timeout=0&debug=on&query='
-  const q = `
-            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-            PREFIX geo: <http://www.opengis.net/ont/geosparql#>
-            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-            PREFIX dc: <http://purl.org/dc/elements/1.1/#>
-            PREFIX dbpedia: <http://dbpedia.org/ontology/#>
-            PREFIX volcano: <http://course.geoinfo2018.org/g1#>
-        ${qry}
-    `;
-
-  const response = await fetch(baseUrl + encodeURIComponent(q));
-  const json = await response.json();
-  return json;
-}
-
-
+/** Function that queries volcano points and constructs a heat map based on their vei
+ * layer is added to the map as heatLayer
+ * used libraries: Leaflet.heat (https://github.com/Leaflet/Leaflet.heat)
+ * **/
 createVolcanoPoints();
 async function createVolcanoPoints() {
   let volcanoQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -393,7 +369,10 @@ async function createVolcanoPoints() {
     layerControl.addOverlay(heatLayer, "VEI");
   });
 };
-
+/** Function that creates array with point coordinates and vei
+ * input: single json entry queried from triple store
+ * output: array with coordinates and vei
+ * **/
 let _createPoints = (entry) => {
   let cordinates = [parseFloat(entry.geometry.value.split('(')[1].split(' ')[1]), parseFloat(entry.geometry.value.split('(')[1].split(' ')[0]), parseFloat(entry.o.value) / 7];
   return cordinates;
