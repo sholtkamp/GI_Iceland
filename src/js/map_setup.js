@@ -35,15 +35,7 @@ map.addControl(new L.Control.Search({
     minLength: 2
 }));
 
-
-//add location finder
-let lc = L.control.locate({
-    position: 'topleft',
-    strings: {
-        setView: "once"
-    }
-}).addTo(map);
-
+let volcanoLayer;
 createVolcanoFeatures();
 
 async function createVolcanoFeatures() {
@@ -59,7 +51,7 @@ async function createVolcanoFeatures() {
         popupAnchor: [1, -24],
         iconUrl: '../img/volcanoIcon.png'
     });
-    let volcanoLayer = L.geoJSON('', {
+    volcanoLayer = L.geoJSON('', {
         id: 'volcanoLayer',
         pointToLayer: function (feature, latlng) {
             return L.marker(latlng, {icon: volcanoIcon});
@@ -75,6 +67,7 @@ async function createVolcanoFeatures() {
     });
 };
 
+let placeLayer;
 createPlacesFeatures(); //https://stackoverflow.com/questions/30501124/or-in-a-sparql-query
 async function createPlacesFeatures() {
     let placesQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -90,7 +83,7 @@ async function createPlacesFeatures() {
         popupAnchor: [-6, -24],
         iconUrl: '../img/townIcon.png'
     });
-    let placeLayer = L.geoJSON('', {
+    placeLayer = L.geoJSON('', {
         id: 'placeLayer',
         pointToLayer: function (feature, latlng) {
             return L.marker(latlng, {icon: placeIcon});
@@ -106,7 +99,7 @@ async function createPlacesFeatures() {
     });
 };
 
-
+let waterLayer;
 createWaterFeatures();
 async function createWaterFeatures() {
     let waterQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -123,15 +116,12 @@ async function createWaterFeatures() {
         "opacity": 0.75
     };
 
-    let waterLayer = L.geoJSON('', {
+    waterLayer = L.geoJSON('', {
         id: 'waterLayer',
         style: waterStyle
     }).addTo(map);
     queryTripleStore(waterQuery).then((waters) => {
-<<<<<<< HEAD
         
-=======
->>>>>>> f4c8293fca573c37e396380b7959fa641e12b1ce
         waters.results.bindings.forEach(water => {
             waterLayer.addData(_createPolylineFeaturen(water));
         });
@@ -141,7 +131,7 @@ async function createWaterFeatures() {
     });
 };
 
-<<<<<<< HEAD
+let naturalLayer;
 createNaturalFeatures();
 async function createNaturalFeatures() {
     let naturalQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -151,12 +141,12 @@ async function createNaturalFeatures() {
         "?polygon geo:asWKT ?geometry." +
         "?s dc:name ?name" +
         "}";
-    var natyrestyle = {
+    var naturestyle = {
        "color" : "green"
     } 
-    let naturalLayer = L.geoJSON('', {
+    naturalLayer = L.geoJSON('', {
         id: 'naturalLayer',
-        style : natyrestyle
+        style : naturestyle
         }
     ).addTo(map);
     queryTripleStore(naturalQuery).then((naturals) => {
@@ -165,7 +155,8 @@ async function createNaturalFeatures() {
         });
     });
 }
-=======
+
+let roadLayer;
 createRoadFeatures();
 async function createRoadFeatures() {
     let roadQuery = "SELECT DISTINCT * WHERE {\n" +
@@ -182,7 +173,7 @@ async function createRoadFeatures() {
         "opacity": 0.85
     };
 
-    let roadLayer = L.geoJSON('', {
+    roadLayer = L.geoJSON('', {
         id: 'roadLayer',
         style: roadStyle
 
@@ -197,8 +188,6 @@ async function createRoadFeatures() {
         return L.Util.template('<p><b>Name : </b>{name}<br>', layer.feature.properties);
     });
 };
-
->>>>>>> f4c8293fca573c37e396380b7959fa641e12b1ce
 
 async function queryTripleStore(qry) {
     const baseUrl = 'http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG1&format=application/json&timeout=0&debug=on&query='
@@ -243,10 +232,6 @@ let _createPolylineFeaturen = (entry) => {
        let coordinatePair = [parseFloat(pair.split(' ')[0]), parseFloat(pair.split(' ')[1])];
        coordinates.push(coordinatePair);
     } );
-<<<<<<< HEAD
-    
-=======
->>>>>>> f4c8293fca573c37e396380b7959fa641e12b1ce
     let geojsonFeature = {
         "type": "Feature",
         "properties": {
@@ -294,7 +279,7 @@ var overlayMaps = {
   "Cities" : placeLayer,
   "Volcanos" : volcanoLayer,
   "Waterbodies" : waterLayer,
-  "Natural Features" : natureLayer,
+  "Natural Features" : naturalLayer,
 }
 
 L.control.layers(mapLayer).addTo(map);
