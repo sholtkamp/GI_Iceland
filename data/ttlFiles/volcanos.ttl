@@ -1,0 +1,129 @@
+@base <localhost://> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/#> .
+@prefix dbpedia: <http://dbpedia.org/ontology/#> .
+@prefix volcano: <http://course.geoinfo2018.org/g1#> .
+
+<http://course.geoinfo2018.org/g1#159478>
+    volcano:deaths 49 ;
+    volcano:vei 3 ;
+    dbpedia:elevation 59 ;
+    dc:name "Eyjafjallajokull"^^xsd:string ;
+    geo:hasGeometry volcano:point_159478 ;
+    a volcano:Stratovolcano .
+
+<http://course.geoinfo2018.org/g1#184086>
+    volcano:deaths 0 ;
+    volcano:vei 2 ;
+    dbpedia:elevation 179 ;
+    dc:name "Krisuvik"^^xsd:string ;
+    geo:hasGeometry volcano:point_184086 ;
+    a <http://course.geoinfo2018.org/g1#Crater\u0020rows> .
+
+<http://course.geoinfo2018.org/g1#240395>
+    volcano:deaths 0 ;
+    volcano:vei 6 ;
+    dbpedia:elevation 46 ;
+    dc:name "Askja"^^xsd:string ;
+    geo:hasGeometry volcano:point_240395 ;
+    a volcano:Stratovolcano .
+
+<http://course.geoinfo2018.org/g1#314229>
+    volcano:deaths 0 ;
+    volcano:vei 7 ;
+    dbpedia:elevation 88 ;
+    dc:name "Bardarbunga"^^xsd:string ;
+    geo:hasGeometry volcano:point_314229 ;
+    a volcano:Stratovolcano .
+
+<http://course.geoinfo2018.org/g1#435998>
+    volcano:deaths 90 ;
+    volcano:vei 3 ;
+    dbpedia:elevation 67 ;
+    dc:name "Grimsvotn"^^xsd:string ;
+    geo:hasGeometry volcano:point_435998 ;
+    a volcano:Caldera .
+
+<http://course.geoinfo2018.org/g1#442053>
+    volcano:deaths 0 ;
+    volcano:vei 5 ;
+    dbpedia:elevation 45 ;
+    dc:name "Katla"^^xsd:string ;
+    geo:hasGeometry volcano:point_442053 ;
+    a <http://course.geoinfo2018.org/g1#Subglacial\u0020volcano> .
+
+<http://course.geoinfo2018.org/g1#578017>
+    volcano:deaths 56 ;
+    volcano:vei 6 ;
+    dbpedia:elevation 94 ;
+    dc:name "Oraefajokull"^^xsd:string ;
+    geo:hasGeometry volcano:point_578017 ;
+    a volcano:Stratovolcano .
+
+<http://course.geoinfo2018.org/g1#625077>
+    volcano:deaths 1 ;
+    volcano:vei 2 ;
+    dbpedia:elevation 72 ;
+    dc:name "Esjufjoll"^^xsd:string ;
+    geo:hasGeometry volcano:point_625077 ;
+    a volcano:Stratovolcano .
+
+<http://course.geoinfo2018.org/g1#660015>
+    volcano:deaths 1 ;
+    volcano:vei 4 ;
+    dbpedia:elevation 137 ;
+    dc:name "Vestmannaeyjar"^^xsd:string ;
+    geo:hasGeometry volcano:point_660015 ;
+    a <http://course.geoinfo2018.org/g1#Submarine\u0020volcano> .
+
+<http://course.geoinfo2018.org/g1#799629>
+    volcano:deaths 0 ;
+    volcano:vei 3 ;
+    dbpedia:elevation 224 ;
+    dc:name "Krafla"^^xsd:string ;
+    geo:hasGeometry volcano:point_799629 ;
+    a volcano:Caldera .
+
+<http://course.geoinfo2018.org/g1#841542>
+    volcano:deaths 0 ;
+    volcano:vei 6 ;
+    dbpedia:elevation 41 ;
+    dc:name "Hekla"^^xsd:string ;
+    geo:hasGeometry volcano:point_841542 ;
+    a volcano:Stratovolcano .
+
+volcano:point_159478
+    geo:asWKT "Point(-19.62 63.63)" .
+
+volcano:point_184086
+    geo:asWKT "Point(-22.1 63.93)" .
+
+volcano:point_240395
+    geo:asWKT "Point(-16.75 65.03)" .
+
+volcano:point_314229
+    geo:asWKT "Point(-17.53 64.63)" .
+
+volcano:point_435998
+    geo:asWKT "Point(-17.33 64.42)" .
+
+volcano:point_442053
+    geo:asWKT "Point(-19.05 63.63)" .
+
+volcano:point_578017
+    geo:asWKT "Point(-16.65 64)" .
+
+volcano:point_625077
+    geo:asWKT "Point(-16.65 64.27)" .
+
+volcano:point_660015
+    geo:asWKT "Point(-20.28 63.43)" .
+
+volcano:point_799629
+    geo:asWKT "Point(-16.78 65.73)" .
+
+volcano:point_841542
+    geo:asWKT "Point(-19.7 63.98)" .
+

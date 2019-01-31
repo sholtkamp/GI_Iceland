@@ -7,7 +7,7 @@
     <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Geoinformation for Iceland</title>
+    <title>DisasterMap</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -66,23 +66,24 @@
         <div id="content">
 
   
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<h2>DisasterMap</h2>
+            <p>The application DisasterMap was implemented during the class Geoinformation in Society at Institute for Geoinformatics of the Westfälische-Wilhelms-Universität in the Wintersemester 2018/2019</p>
+            <p>DisasterMap is a modern, responsive web interface, providing data about volcanos in Iceland. It is designed to educate tourists and people living there about the risks and the intended behaviour in cases of emergency when a volcano eruption takes place. This should mitigate the effects of volcanic eruptions in Iceland.</p>
 
             <div class="line"></div>
 
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h2>Data</h2>
+            <p>It makes use of linked data that was prepared in the Virtuoso TripleStore as RDF-Triples. Freely available data about Iceland prepared in shapefiles was converted to RDF-Triples to and uploaded to the TripleStore. By the use of existing vocabularies the new shapefile data was linked to other datasets. In total six different shapefiles were used containing: places (cities, villages, ...), waterways, the border, roads, volcanos and natural features.</p>
 
             <div class="line"></div>
 
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h2>Goals</h2>
+            <p>The overall goal of the application is to mitigate the effects of volcanic eruptions in Iceland through providing information and educating the people about these natural disasters. This should raise awareness and start a more detailed thinking about volcanic eruptions by using freely available data and provide a meaningful visualization of it. By this the inhabitants might rethink their choice of a location for their new house or other infrastructural decisions.</p>
 
             <div class="line"></div>
 
-            <h3>Lorem Ipsum Dolor</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3>Technologies</h3>
+            <p>To convert the shapefiles to RDF-Triples the programming language R was used together with the R-package "rdflib". This enables the automatic creation of an RDF object and also the serialization of it to a turtle file. For the visualization the standard technologies of web-programming: HTML, CSS and JavaScript were used. For the design of the web application the JavaScript library Bootstrap was used. To get the interactive map the JavaScript library Leaflet was used which makes it possible to load the different datasets as layers on a base map. To create educational information for the users we used piktocharts.</p>
         </div>
     </div>
 
@@ -92,8 +93,6 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-
-    <script src="../js/ui.js"></script>
 
 </body>
 
