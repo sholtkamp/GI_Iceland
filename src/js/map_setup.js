@@ -114,7 +114,7 @@ async function createWaterFeatures() {
 
     }).addTo(map);
     queryTripleStore(waterQuery).then((waters) => {
-        debugger;
+        
         waters.results.bindings.forEach(water => {
             waterLayer.addData(_createPolylineFeaturen(water));
         });
@@ -123,6 +123,30 @@ async function createWaterFeatures() {
         return L.Util.template('<p><b>Name : </b>{name}<br>', layer.feature.properties);
     });
 };
+
+createNaturalFeatures();
+async function createNaturalFeatures() {
+    let naturalQuery = "SELECT DISTINCT * WHERE {\n" +
+        "?s a ?volcano ." +
+        "FILTER (?volcano IN (volcano:water , volcano:Riverbank , volcano:Park , volcano:Forest) )" +
+        "?s geo:hasGeometry ?polygon." +
+        "?polygon geo:asWKT ?geometry." +
+        "?s dc:name ?name" +
+        "}";
+    var natyrestyle = {
+       "color" : "green"
+    } 
+    let naturalLayer = L.geoJSON('', {
+        id: 'naturalLayer',
+        style : natyrestyle
+        }
+    ).addTo(map);
+    queryTripleStore(naturalQuery).then((naturals) => {
+        naturals.results.bindings.forEach(nature => {
+            naturalLayer.addData(_createPolygonFeaturen(nature));
+        });
+    });
+}
 
 async function queryTripleStore(qry) {
     const baseUrl = 'http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG1&format=application/json&timeout=0&debug=on&query='
@@ -167,7 +191,7 @@ let _createPolylineFeaturen = (entry) => {
        let coordinatePair = [parseFloat(pair.split(' ')[0]), parseFloat(pair.split(' ')[1])];
        coordinates.push(coordinatePair);
     } );
-    debugger;
+    
     let geojsonFeature = {
         "type": "Feature",
         "properties": {
@@ -181,6 +205,31 @@ let _createPolylineFeaturen = (entry) => {
             "coordinates": coordinates
         }
     };
-    console.log(geojsonFeature);
+    
+    return geojsonFeature;
+};
+let _createPolygonFeaturen = (entry) => {
+    let temp = entry.geometry.value.split('(');
+    let coordinatePairs = temp[1].split(',');
+    let coordinates = [];
+    coordinatePairs.forEach(pair =>{
+       let coordinatePair = [parseFloat(pair.split(' ')[0]), parseFloat(pair.split(' ')[1])];
+       coordinates.push(coordinatePair);
+    } );
+    
+    let geojsonFeature = {
+        "type": "Feature",
+        "properties": {
+            "name": entry.name.value,
+            "id": entry.s.value,
+            "entry": entry
+        },
+
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [coordinates]
+        }
+    };
+    
     return geojsonFeature;
 };
