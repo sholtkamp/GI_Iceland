@@ -1,0 +1,1351 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/#> .
+@prefix dbpedia: <http://dbpedia.org/ontology/#> .
+@prefix volcano: <http://course.geoinfo2018.org/g1#> .
+
+<http://course.geoinfo2018.org/g1#122273962>
+    dc:name "Akranes" ;
+    geo:hasGeometry volcano:point_122273962 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#122275012>
+    dc:name "Borgarnes" ;
+    geo:hasGeometry volcano:point_122275012 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#126053571>
+    dc:name "Hellissandur" ;
+    geo:hasGeometry volcano:point_126053571 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#126054405>
+    dc:name "Rif" ;
+    geo:hasGeometry volcano:point_126054405 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#126054561>
+    dc:name "Ólafsvík" ;
+    geo:hasGeometry volcano:point_126054561 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#126199675>
+    dc:name "Grundarfjörður" ;
+    geo:hasGeometry volcano:point_126199675 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#126524000>
+    dc:name "Stykkishólmur" ;
+    geo:hasGeometry volcano:point_126524000 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#129958272>
+    dc:name "Reykjanesbær" ;
+    geo:hasGeometry volcano:point_129958272 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#137809877>
+    dc:name "Árskógssandur" ;
+    geo:hasGeometry volcano:point_137809877 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#189500859>
+    dc:name "Flúðir" ;
+    geo:hasGeometry volcano:point_189500859 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#192291473>
+    dc:name "Eyrarbakki" ;
+    geo:hasGeometry volcano:point_192291473 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#201575301>
+    dc:name "Hvolsvöllur" ;
+    geo:hasGeometry volcano:point_201575301 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#201585514>
+    dc:name "Hella" ;
+    geo:hasGeometry volcano:point_201585514 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#206195959>
+    dc:name "Garður" ;
+    geo:hasGeometry volcano:point_206195959 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#206196181>
+    dc:name "Sandgerði" ;
+    geo:hasGeometry volcano:point_206196181 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#224491072>
+    dc:name "Kleppjárnsreykir" ;
+    geo:hasGeometry volcano:point_224491072 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#242107681>
+    dc:name "Akureyri" ;
+    geo:hasGeometry volcano:point_242107681 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#242771371>
+    dc:name "Súðavík" ;
+    geo:hasGeometry volcano:point_242771371 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#242958931>
+    dc:name "Patreksfjörður" ;
+    geo:hasGeometry volcano:point_242958931 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#244148660>
+    dc:name "Kópavogur" ;
+    geo:hasGeometry volcano:point_244148660 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#244148661>
+    dc:name "Garðabær" ;
+    geo:hasGeometry volcano:point_244148661 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#244148715>
+    dc:name "Mosfellsbær" ;
+    geo:hasGeometry volcano:point_244148715 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#244149207>
+    dc:name "Grindavík" ;
+    geo:hasGeometry volcano:point_244149207 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#244149222>
+    dc:name "Ásbrú" ;
+    geo:hasGeometry volcano:point_244149222 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#244149690>
+    dc:name "Varmahlíð" ;
+    geo:hasGeometry volcano:point_244149690 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#244149870>
+    dc:name "Hrísey" ;
+    geo:hasGeometry volcano:point_244149870 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#244150283>
+    dc:name "Grenivík" ;
+    geo:hasGeometry volcano:point_244150283 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#245808228>
+    dc:name "Húsavík" ;
+    geo:hasGeometry volcano:point_245808228 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#249085731>
+    dc:name "Höfn" ;
+    geo:hasGeometry volcano:point_249085731 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#249086265>
+    dc:name "Egilsstaðir" ;
+    geo:hasGeometry volcano:point_249086265 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#249086462>
+    dc:name "Seyðisfjörður" ;
+    geo:hasGeometry volcano:point_249086462 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#249088982>
+    dc:name "Blönduós" ;
+    geo:hasGeometry volcano:point_249088982 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#253976420>
+    dc:name "Suðureyri" ;
+    geo:hasGeometry volcano:point_253976420 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#256611840>
+    dc:name "Eskifjörður" ;
+    geo:hasGeometry volcano:point_256611840 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#256611841>
+    dc:name "Reyðarfjörður" ;
+    geo:hasGeometry volcano:point_256611841 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#256611930>
+    dc:name "Neskaupstaður" ;
+    geo:hasGeometry volcano:point_256611930 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#256612045>
+    dc:name "Fáskrúðsfjörður" ;
+    geo:hasGeometry volcano:point_256612045 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#256613036>
+    dc:name "Bolungarvík" ;
+    geo:hasGeometry volcano:point_256613036 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#256613236>
+    dc:name "Hnífsdalur" ;
+    geo:hasGeometry volcano:point_256613236 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#257374289>
+    dc:name "Skagaströnd" ;
+    geo:hasGeometry volcano:point_257374289 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#257374461>
+    dc:name "Hofsós" ;
+    geo:hasGeometry volcano:point_257374461 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#262198016>
+    dc:name "Hvammstangi" ;
+    geo:hasGeometry volcano:point_262198016 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#267587731>
+    dc:name "Hrafnagil" ;
+    geo:hasGeometry volcano:point_267587731 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#267723350>
+    dc:name "Hauganes" ;
+    geo:hasGeometry volcano:point_267723350 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#267726700>
+    dc:name "Hjalteyri" ;
+    geo:hasGeometry volcano:point_267726700 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#270957952>
+    dc:name "Skútustaðir" ;
+    geo:hasGeometry volcano:point_270957952 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#270961115>
+    dc:name "Reykjahlíð" ;
+    geo:hasGeometry volcano:point_270961115 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#279526499>
+    dc:name "Hvanneyri" ;
+    geo:hasGeometry volcano:point_279526499 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#280101400>
+    dc:name "Laugar" ;
+    geo:hasGeometry volcano:point_280101400 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#286169132>
+    dc:name "Hallormsstaður" ;
+    geo:hasGeometry volcano:point_286169132 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#287458396>
+    dc:name "Laugarbakki" ;
+    geo:hasGeometry volcano:point_287458396 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#289059088>
+    dc:name "Fellabær" ;
+    geo:hasGeometry volcano:point_289059088 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#289348559>
+    dc:name "Klaustursel" ;
+    geo:hasGeometry volcano:point_289348559 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#289348647>
+    dc:name "Brú" ;
+    geo:hasGeometry volcano:point_289348647 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291733074>
+    dc:name "Friðheimur" ;
+    geo:hasGeometry volcano:point_291733074 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291733604>
+    dc:name "Hof" ;
+    geo:hasGeometry volcano:point_291733604 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291783175>
+    dc:name "Dalatangi" ;
+    geo:hasGeometry volcano:point_291783175 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291783279>
+    dc:name "Rauðilækur" ;
+    geo:hasGeometry volcano:point_291783279 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291783497>
+    dc:name "Sólbrekka" ;
+    geo:hasGeometry volcano:point_291783497 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291783499>
+    dc:name "Sekkjastaðir" ;
+    geo:hasGeometry volcano:point_291783499 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291783513>
+    dc:name "Hof" ;
+    geo:hasGeometry volcano:point_291783513 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291783642>
+    dc:name "Droplaugarstaðir" ;
+    geo:hasGeometry volcano:point_291783642 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291783647>
+    dc:name "Teigaból" ;
+    geo:hasGeometry volcano:point_291783647 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291783658>
+    dc:name "Hús" ;
+    geo:hasGeometry volcano:point_291783658 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291783662>
+    dc:name "Brekkugerði" ;
+    geo:hasGeometry volcano:point_291783662 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291783665>
+    dc:name "Geitagerði" ;
+    geo:hasGeometry volcano:point_291783665 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#291791044>
+    dc:name "Egilsstaðir" ;
+    geo:hasGeometry volcano:point_291791044 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#294967211>
+    dc:name "Bakkagerði" ;
+    geo:hasGeometry volcano:point_294967211 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#295934945>
+    dc:name "Hamrar" ;
+    geo:hasGeometry volcano:point_295934945 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#295934947>
+    dc:name "Foldir" ;
+    geo:hasGeometry volcano:point_295934947 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#295934950>
+    dc:name "Hús" ;
+    geo:hasGeometry volcano:point_295934950 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#295935526>
+    dc:name "Grafarvogur" ;
+    geo:hasGeometry volcano:point_295935526 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#295936048>
+    dc:name "Bryggjuhverfið" ;
+    geo:hasGeometry volcano:point_295936048 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#295940741>
+    dc:name "Hlíðar" ;
+    geo:hasGeometry volcano:point_295940741 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#295941974>
+    dc:name "Rauðarárholt" ;
+    geo:hasGeometry volcano:point_295941974 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#296859544>
+    dc:name "Teigar" ;
+    geo:hasGeometry volcano:point_296859544 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#296859578>
+    dc:name "Reykjahverfi" ;
+    geo:hasGeometry volcano:point_296859578 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#297101592>
+    dc:name "Lönd" ;
+    geo:hasGeometry volcano:point_297101592 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#297536505>
+    dc:name "Arnarnes" ;
+    geo:hasGeometry volcano:point_297536505 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#297549611>
+    dc:name "Laugarnes" ;
+    geo:hasGeometry volcano:point_297549611 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#297550530>
+    dc:name "Seltjarnarnes" ;
+    geo:hasGeometry volcano:point_297550530 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#298820621>
+    dc:name "Skeifan" ;
+    geo:hasGeometry volcano:point_298820621 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#300897138>
+    dc:name "Gamli Vesturbærinn" ;
+    geo:hasGeometry volcano:point_300897138 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#300901620>
+    dc:name "Skuggahverfi" ;
+    geo:hasGeometry volcano:point_300901620 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#300902724>
+    dc:name "Tjarnarbrekka" ;
+    geo:hasGeometry volcano:point_300902724 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#300904437>
+    dc:name "Tungan" ;
+    geo:hasGeometry volcano:point_300904437 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#300905926>
+    dc:name "Arnarhóll" ;
+    geo:hasGeometry volcano:point_300905926 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#300908370>
+    dc:name "Laufás" ;
+    geo:hasGeometry volcano:point_300908370 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#300909977>
+    dc:name "Þingholt" ;
+    geo:hasGeometry volcano:point_300909977 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#300909984>
+    dc:name "Ásgarður" ;
+    geo:hasGeometry volcano:point_300909984 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#300934025>
+    dc:name "Þorlákshöfn" ;
+    geo:hasGeometry volcano:point_300934025 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#303589057>
+    dc:name "Sogamýri" ;
+    geo:hasGeometry volcano:point_303589057 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#303590449>
+    dc:name "Norðurmýri" ;
+    geo:hasGeometry volcano:point_303590449 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308971811>
+    dc:name "Álftanes" ;
+    geo:hasGeometry volcano:point_308971811 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#308971814>
+    dc:name "Miðbærinn" ;
+    geo:hasGeometry volcano:point_308971814 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308971819>
+    dc:name "Vesturbærinn" ;
+    geo:hasGeometry volcano:point_308971819 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308971823>
+    dc:name "Laugardalur" ;
+    geo:hasGeometry volcano:point_308971823 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308971824>
+    dc:name "Háaleiti" ;
+    geo:hasGeometry volcano:point_308971824 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308971840>
+    dc:name "Grafarholt" ;
+    geo:hasGeometry volcano:point_308971840 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308971841>
+    dc:name "Árbær" ;
+    geo:hasGeometry volcano:point_308971841 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308972509>
+    dc:name "Grjótaþorp" ;
+    geo:hasGeometry volcano:point_308972509 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308974863>
+    dc:name "Tún" ;
+    geo:hasGeometry volcano:point_308974863 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308974865>
+    dc:name "Teigar" ;
+    geo:hasGeometry volcano:point_308974865 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308974866>
+    dc:name "Lækir" ;
+    geo:hasGeometry volcano:point_308974866 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308974867>
+    dc:name "Sund" ;
+    geo:hasGeometry volcano:point_308974867 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308974868>
+    dc:name "Heimar" ;
+    geo:hasGeometry volcano:point_308974868 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#308974869>
+    dc:name "Vogar" ;
+    geo:hasGeometry volcano:point_308974869 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#316661506>
+    dc:name "Brimnes" ;
+    geo:hasGeometry volcano:point_316661506 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#318749535>
+    dc:name "Skógar" ;
+    geo:hasGeometry volcano:point_318749535 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#318762084>
+    dc:name "Grundir" ;
+    geo:hasGeometry volcano:point_318762084 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#318769179>
+    dc:name "Jörundarholt" ;
+    geo:hasGeometry volcano:point_318769179 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#318809487>
+    dc:name "Flatir" ;
+    geo:hasGeometry volcano:point_318809487 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#318918079>
+    dc:name "Höfðagrund" ;
+    geo:hasGeometry volcano:point_318918079 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#319067934>
+    dc:name "Skerjafjörður" ;
+    geo:hasGeometry volcano:point_319067934 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#319257770>
+    dc:name "Tún" ;
+    geo:hasGeometry volcano:point_319257770 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#319257776>
+    dc:name "Teigar" ;
+    geo:hasGeometry volcano:point_319257776 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#319257777>
+    dc:name "Miðbær" ;
+    geo:hasGeometry volcano:point_319257777 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#319320809>
+    dc:name "Lundir" ;
+    geo:hasGeometry volcano:point_319320809 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#319325272>
+    dc:name "Gerði" ;
+    geo:hasGeometry volcano:point_319325272 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#319325276>
+    dc:name "Brautir" ;
+    geo:hasGeometry volcano:point_319325276 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#319869661>
+    dc:name "Hafnarfjörður" ;
+    geo:hasGeometry volcano:point_319869661 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#321680260>
+    dc:name "Stokkseyri" ;
+    geo:hasGeometry volcano:point_321680260 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#322708319>
+    dc:name "Seljahverfi" ;
+    geo:hasGeometry volcano:point_322708319 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#326185408>
+    dc:name "Lönd" ;
+    geo:hasGeometry volcano:point_326185408 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#326185418>
+    dc:name "Gerði" ;
+    geo:hasGeometry volcano:point_326185418 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#329972160>
+    dc:name "Fell" ;
+    geo:hasGeometry volcano:point_329972160 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#329972161>
+    dc:name "Stekkir" ;
+    geo:hasGeometry volcano:point_329972161 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#329972162>
+    dc:name "Bakkar" ;
+    geo:hasGeometry volcano:point_329972162 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#330008072>
+    dc:name "Hólar" ;
+    geo:hasGeometry volcano:point_330008072 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#330009258>
+    dc:name "Berg" ;
+    geo:hasGeometry volcano:point_330009258 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#330020537>
+    dc:name "Breiðholt" ;
+    geo:hasGeometry volcano:point_330020537 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#330143257>
+    dc:name "Norðlingaholt" ;
+    geo:hasGeometry volcano:point_330143257 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#348245616>
+    dc:name "Prýði" ;
+    geo:hasGeometry volcano:point_348245616 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#356273304>
+    dc:name "Brekkur" ;
+    geo:hasGeometry volcano:point_356273304 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#356273305>
+    dc:name "Skógar" ;
+    geo:hasGeometry volcano:point_356273305 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#356273306>
+    dc:name "Varir" ;
+    geo:hasGeometry volcano:point_356273306 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#356273307>
+    dc:name "Kot" ;
+    geo:hasGeometry volcano:point_356273307 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#356273308>
+    dc:name "Holt" ;
+    geo:hasGeometry volcano:point_356273308 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#356273309>
+    dc:name "Hólmatún" ;
+    geo:hasGeometry volcano:point_356273309 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#356273310>
+    dc:name "Tún" ;
+    geo:hasGeometry volcano:point_356273310 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#356273311>
+    dc:name "Stígar" ;
+    geo:hasGeometry volcano:point_356273311 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#367355579>
+    dc:name "Kleifar" ;
+    geo:hasGeometry volcano:point_367355579 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#368219018>
+    dc:name "Búðardalur" ;
+    geo:hasGeometry volcano:point_368219018 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#370816158>
+    dc:name "Laugarás" ;
+    geo:hasGeometry volcano:point_370816158 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#372918152>
+    dc:name "Hafnir" ;
+    geo:hasGeometry volcano:point_372918152 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#378506691>
+    dc:name "Grundarhverfi" ;
+    geo:hasGeometry volcano:point_378506691 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#378511138>
+    dc:name "Tungur" ;
+    geo:hasGeometry volcano:point_378511138 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#382150436>
+    dc:name "Holt" ;
+    geo:hasGeometry volcano:point_382150436 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#385015243>
+    dc:name "Vatnsendahlíð" ;
+    geo:hasGeometry volcano:point_385015243 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#415505632>
+    dc:name "Úthlið" ;
+    geo:hasGeometry volcano:point_415505632 ;
+    a dbpedia:Hamlet .
+
+<http://course.geoinfo2018.org/g1#421609805>
+    dc:name "Vogar" ;
+    geo:hasGeometry volcano:point_421609805 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#423830056>
+    dc:name "Silicon Docks" ;
+    geo:hasGeometry volcano:point_423830056 ;
+    a dbpedia:Suburb .
+
+<http://course.geoinfo2018.org/g1#52099005>
+    dc:name "Þórshöfn" ;
+    geo:hasGeometry volcano:point_52099005 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#52140910>
+    dc:name "Raufarhöfn" ;
+    geo:hasGeometry volcano:point_52140910 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#52991187>
+    dc:name "Kópasker" ;
+    geo:hasGeometry volcano:point_52991187 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#59860048>
+    dc:name "Vopnafjörður" ;
+    geo:hasGeometry volcano:point_59860048 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#59861224>
+    dc:name "Djúpivogur" ;
+    geo:hasGeometry volcano:point_59861224 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#59861511>
+    dc:name "Vík" ;
+    geo:hasGeometry volcano:point_59861511 ;
+    a dbpedia:Village .
+
+<http://course.geoinfo2018.org/g1#59864601>
+    dc:name "Selfoss" ;
+    geo:hasGeometry volcano:point_59864601 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#59864605>
+    dc:name "Hveragerði" ;
+    geo:hasGeometry volcano:point_59864605 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#60472743>
+    dc:name "Kirkjubæjarklaustur" ;
+    geo:hasGeometry volcano:point_60472743 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#60481931>
+    dc:name "Reykjavík" ;
+    geo:hasGeometry volcano:point_60481931 ;
+    a dbpedia:City .
+
+<http://course.geoinfo2018.org/g1#60654105>
+    dc:name "Ólafsfjörður" ;
+    geo:hasGeometry volcano:point_60654105 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#60654107>
+    dc:name "Dalvík" ;
+    geo:hasGeometry volcano:point_60654107 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#60741085>
+    dc:name "Ísafjörður" ;
+    geo:hasGeometry volcano:point_60741085 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#60741640>
+    dc:name "Hólmavík" ;
+    geo:hasGeometry volcano:point_60741640 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#61365704>
+    dc:name "Siglufjörður" ;
+    geo:hasGeometry volcano:point_61365704 ;
+    a dbpedia:Town .
+
+<http://course.geoinfo2018.org/g1#65295844>
+    dc:name "Sauðárkrókur" ;
+    geo:hasGeometry volcano:point_65295844 ;
+    a dbpedia:Town .
+
+volcano:point_122273962
+    geo:asWKT "Point(-22.0833361 64.3170499)" .
+
+volcano:point_122275012
+    geo:asWKT "Point(-21.920916 64.5373834)" .
+
+volcano:point_126053571
+    geo:asWKT "Point(-23.8823933 64.9169785)" .
+
+volcano:point_126054405
+    geo:asWKT "Point(-23.8179892 64.9234904)" .
+
+volcano:point_126054561
+    geo:asWKT "Point(-23.7084345 64.8959304)" .
+
+volcano:point_126199675
+    geo:asWKT "Point(-23.258914 64.9259025)" .
+
+volcano:point_126524000
+    geo:asWKT "Point(-22.7276815 65.0761332)" .
+
+volcano:point_129958272
+    geo:asWKT "Point(-22.5490828 64.0021865)" .
+
+volcano:point_137809877
+    geo:asWKT "Point(-18.353875 65.944437)" .
+
+volcano:point_189500859
+    geo:asWKT "Point(-20.3209294 64.1306381)" .
+
+volcano:point_192291473
+    geo:asWKT "Point(-21.148141 63.8630115)" .
+
+volcano:point_201575301
+    geo:asWKT "Point(-20.2313797 63.7502178)" .
+
+volcano:point_201585514
+    geo:asWKT "Point(-20.3987008 63.8355038)" .
+
+volcano:point_206195959
+    geo:asWKT "Point(-22.6500535 64.0679534)" .
+
+volcano:point_206196181
+    geo:asWKT "Point(-22.7059293 64.0388116)" .
+
+volcano:point_224491072
+    geo:asWKT "Point(-21.3984275 64.6568981)" .
+
+volcano:point_242107681
+    geo:asWKT "Point(-18.0913027 65.6825696)" .
+
+volcano:point_242771371
+    geo:asWKT "Point(-22.9901685 66.0219836)" .
+
+volcano:point_242958931
+    geo:asWKT "Point(-23.9998934 65.5985016)" .
+
+volcano:point_244148660
+    geo:asWKT "Point(-21.9047231 64.1114229)" .
+
+volcano:point_244148661
+    geo:asWKT "Point(-21.9146802 64.0943814)" .
+
+volcano:point_244148715
+    geo:asWKT "Point(-21.6987352 64.1677258)" .
+
+volcano:point_244149207
+    geo:asWKT "Point(-22.4312411 63.8420191)" .
+
+volcano:point_244149222
+    geo:asWKT "Point(-22.5734288 63.9715967)" .
+
+volcano:point_244149690
+    geo:asWKT "Point(-19.4474849 65.5532363)" .
+
+volcano:point_244149870
+    geo:asWKT "Point(-18.3772049 65.9796723)" .
+
+volcano:point_244150283
+    geo:asWKT "Point(-18.1801377 65.9475088)" .
+
+volcano:point_245808228
+    geo:asWKT "Point(-17.3410402 66.0433168)" .
+
+volcano:point_249085731
+    geo:asWKT "Point(-15.2086024 64.2540523)" .
+
+volcano:point_249086265
+    geo:asWKT "Point(-14.4035257 65.2620411)" .
+
+volcano:point_249086462
+    geo:asWKT "Point(-14.0065272 65.259669)" .
+
+volcano:point_249088982
+    geo:asWKT "Point(-20.2814057 65.6600968)" .
+
+volcano:point_253976420
+    geo:asWKT "Point(-23.5219271 66.1284157)" .
+
+volcano:point_256611840
+    geo:asWKT "Point(-14.0128511 65.0710116)" .
+
+volcano:point_256611841
+    geo:asWKT "Point(-14.2086824 65.0340274)" .
+
+volcano:point_256611930
+    geo:asWKT "Point(-13.6772188 65.1489821)" .
+
+volcano:point_256612045
+    geo:asWKT "Point(-14.0182495 64.9330927)" .
+
+volcano:point_256613036
+    geo:asWKT "Point(-23.2489431 66.1578749)" .
+
+volcano:point_256613236
+    geo:asWKT "Point(-23.1202012 66.1096624)" .
+
+volcano:point_257374289
+    geo:asWKT "Point(-20.3005642 65.8233244)" .
+
+volcano:point_257374461
+    geo:asWKT "Point(-19.4110152 65.8974591)" .
+
+volcano:point_262198016
+    geo:asWKT "Point(-20.9479226 65.4038591)" .
+
+volcano:point_267587731
+    geo:asWKT "Point(-18.0945302 65.5735473)" .
+
+volcano:point_267723350
+    geo:asWKT "Point(-18.3053927 65.9249047)" .
+
+volcano:point_267726700
+    geo:asWKT "Point(-18.1966452 65.8510255)" .
+
+volcano:point_270957952
+    geo:asWKT "Point(-17.0366171 65.5673075)" .
+
+volcano:point_270961115
+    geo:asWKT "Point(-16.9114283 65.6428567)" .
+
+volcano:point_279526499
+    geo:asWKT "Point(-21.7664688 64.5633411)" .
+
+volcano:point_280101400
+    geo:asWKT "Point(-17.3573138 65.7219903)" .
+
+volcano:point_286169132
+    geo:asWKT "Point(-14.7449221 65.0942909)" .
+
+volcano:point_287458396
+    geo:asWKT "Point(-20.8921111 65.3280544)" .
+
+volcano:point_289059088
+    geo:asWKT "Point(-14.4239301 65.2818145)" .
+
+volcano:point_289348559
+    geo:asWKT "Point(-15.2454315 65.1909558)" .
+
+volcano:point_289348647
+    geo:asWKT "Point(-15.5274271 65.1089138)" .
+
+volcano:point_291733074
+    geo:asWKT "Point(-14.0275872 65.1879654)" .
+
+volcano:point_291733604
+    geo:asWKT "Point(-13.7334042 65.2068493)" .
+
+volcano:point_291783175
+    geo:asWKT "Point(-13.57599 65.2684572)" .
+
+volcano:point_291783279
+    geo:asWKT "Point(-14.5367421 65.2332137)" .
+
+volcano:point_291783497
+    geo:asWKT "Point(-14.6825109 65.1683572)" .
+
+volcano:point_291783499
+    geo:asWKT "Point(-14.6785862 65.1699627)" .
+
+volcano:point_291783513
+    geo:asWKT "Point(-14.6347009 65.1863751)" .
+
+volcano:point_291783642
+    geo:asWKT "Point(-14.7250593 65.1485965)" .
+
+volcano:point_291783647
+    geo:asWKT "Point(-14.7018172 65.1576931)" .
+
+volcano:point_291783658
+    geo:asWKT "Point(-14.803826 65.1023007)" .
+
+volcano:point_291783662
+    geo:asWKT "Point(-14.812905 65.0995057)" .
+
+volcano:point_291783665
+    geo:asWKT "Point(-14.7908377 65.1121469)" .
+
+volcano:point_291791044
+    geo:asWKT "Point(-15.1024001 64.9806309)" .
+
+volcano:point_294967211
+    geo:asWKT "Point(-13.8162338 65.5259746)" .
+
+volcano:point_295934945
+    geo:asWKT "Point(-21.8163266 64.1395542)" .
+
+volcano:point_295934947
+    geo:asWKT "Point(-21.7985143 64.1366388)" .
+
+volcano:point_295934950
+    geo:asWKT "Point(-21.7787208 64.1377111)" .
+
+volcano:point_295935526
+    geo:asWKT "Point(-21.7934986 64.1452766)" .
+
+volcano:point_295936048
+    geo:asWKT "Point(-21.819617 64.1323774)" .
+
+volcano:point_295940741
+    geo:asWKT "Point(-21.9079529 64.1334619)" .
+
+volcano:point_295941974
+    geo:asWKT "Point(-21.905366 64.1403127)" .
+
+volcano:point_296859544
+    geo:asWKT "Point(-21.6849839 64.1645751)" .
+
+volcano:point_296859578
+    geo:asWKT "Point(-21.6543766 64.1544854)" .
+
+volcano:point_297101592
+    geo:asWKT "Point(-21.6775399 64.1697149)" .
+
+volcano:point_297536505
+    geo:asWKT "Point(-21.9254799 64.1012402)" .
+
+volcano:point_297549611
+    geo:asWKT "Point(-21.87344 64.1533174)" .
+
+volcano:point_297550530
+    geo:asWKT "Point(-21.9947702 64.1543644)" .
+
+volcano:point_298820621
+    geo:asWKT "Point(-21.8698076 64.1312954)" .
+
+volcano:point_300897138
+    geo:asWKT "Point(-21.9506318 64.1490204)" .
+
+volcano:point_300901620
+    geo:asWKT "Point(-21.9199375 64.1451608)" .
+
+volcano:point_300902724
+    geo:asWKT "Point(-21.945799 64.145594)" .
+
+volcano:point_300904437
+    geo:asWKT "Point(-21.9251724 64.1428527)" .
+
+volcano:point_300905926
+    geo:asWKT "Point(-21.9294451 64.1471957)" .
+
+volcano:point_300908370
+    geo:asWKT "Point(-21.9389226 64.1429873)" .
+
+volcano:point_300909977
+    geo:asWKT "Point(-21.9355498 64.1444906)" .
+
+volcano:point_300909984
+    geo:asWKT "Point(-21.9316648 64.1430299)" .
+
+volcano:point_300934025
+    geo:asWKT "Point(-21.376149 63.8593461)" .
+
+volcano:point_303589057
+    geo:asWKT "Point(-21.8575882 64.1274848)" .
+
+volcano:point_303590449
+    geo:asWKT "Point(-21.9182738 64.1395466)" .
+
+volcano:point_308971811
+    geo:asWKT "Point(-22.0190429 64.1055983)" .
+
+volcano:point_308971814
+    geo:asWKT "Point(-21.9419065 64.1467778)" .
+
+volcano:point_308971819
+    geo:asWKT "Point(-21.9580696 64.1443661)" .
+
+volcano:point_308971823
+    geo:asWKT "Point(-21.8674232 64.1397505)" .
+
+volcano:point_308971824
+    geo:asWKT "Point(-21.8813 64.1283565)" .
+
+volcano:point_308971840
+    geo:asWKT "Point(-21.7573766 64.1263563)" .
+
+volcano:point_308971841
+    geo:asWKT "Point(-21.7952076 64.1143734)" .
+
+volcano:point_308972509
+    geo:asWKT "Point(-21.9429614 64.1482908)" .
+
+volcano:point_308974863
+    geo:asWKT "Point(-21.8987102 64.1447216)" .
+
+volcano:point_308974865
+    geo:asWKT "Point(-21.8867137 64.1446569)" .
+
+volcano:point_308974866
+    geo:asWKT "Point(-21.8777579 64.148482)" .
+
+volcano:point_308974867
+    geo:asWKT "Point(-21.8562565 64.1423859)" .
+
+volcano:point_308974868
+    geo:asWKT "Point(-21.8621705 64.1339553)" .
+
+volcano:point_308974869
+    geo:asWKT "Point(-21.8504471 64.1349218)" .
+
+volcano:point_316661506
+    geo:asWKT "Point(-19.3582731 65.7778339)" .
+
+volcano:point_318749535
+    geo:asWKT "Point(-22.0502345 64.3245965)" .
+
+volcano:point_318762084
+    geo:asWKT "Point(-22.050418 64.3181727)" .
+
+volcano:point_318769179
+    geo:asWKT "Point(-22.0390626 64.3173604)" .
+
+volcano:point_318809487
+    geo:asWKT "Point(-22.0547243 64.3224946)" .
+
+volcano:point_318918079
+    geo:asWKT "Point(-22.0476553 64.3141612)" .
+
+volcano:point_319067934
+    geo:asWKT "Point(-21.9517602 64.1296049)" .
+
+volcano:point_319257770
+    geo:asWKT "Point(-22.0920661 64.3162733)" .
+
+volcano:point_319257776
+    geo:asWKT "Point(-22.0886855 64.3156973)" .
+
+volcano:point_319257777
+    geo:asWKT "Point(-22.0818335 64.3178944)" .
+
+volcano:point_319320809
+    geo:asWKT "Point(-22.0434906 64.3229982)" .
+
+volcano:point_319325272
+    geo:asWKT "Point(-22.0843974 64.3185713)" .
+
+volcano:point_319325276
+    geo:asWKT "Point(-22.072924 64.3223993)" .
+
+volcano:point_319869661
+    geo:asWKT "Point(-21.9556288 64.0702063)" .
+
+volcano:point_321680260
+    geo:asWKT "Point(-21.0611516 63.8369673)" .
+
+volcano:point_322708319
+    geo:asWKT "Point(-21.8466111 64.0999619)" .
+
+volcano:point_326185408
+    geo:asWKT "Point(-21.8709984 64.1198788)" .
+
+volcano:point_326185418
+    geo:asWKT "Point(-21.8638585 64.1242029)" .
+
+volcano:point_329972160
+    geo:asWKT "Point(-21.8202915 64.1004221)" .
+
+volcano:point_329972161
+    geo:asWKT "Point(-21.8336264 64.1115512)" .
+
+volcano:point_329972162
+    geo:asWKT "Point(-21.8322422 64.1077062)" .
+
+volcano:point_330008072
+    geo:asWKT "Point(-21.8134094 64.1092728)" .
+
+volcano:point_330009258
+    geo:asWKT "Point(-21.8177392 64.1054905)" .
+
+volcano:point_330020537
+    geo:asWKT "Point(-21.8320569 64.1025197)" .
+
+volcano:point_330143257
+    geo:asWKT "Point(-21.7724411 64.1013067)" .
+
+volcano:point_348245616
+    geo:asWKT "Point(-21.9621425 64.0859965)" .
+
+volcano:point_356273304
+    geo:asWKT "Point(-22.0176846 64.1001596)" .
+
+volcano:point_356273305
+    geo:asWKT "Point(-22.0254932 64.0979886)" .
+
+volcano:point_356273306
+    geo:asWKT "Point(-22.0317382 64.102753)" .
+
+volcano:point_356273307
+    geo:asWKT "Point(-22.0286339 64.1034101)" .
+
+volcano:point_356273308
+    geo:asWKT "Point(-22.0230234 64.1027714)" .
+
+volcano:point_356273309
+    geo:asWKT "Point(-22.0230863 64.1093098)" .
+
+volcano:point_356273310
+    geo:asWKT "Point(-22.0151698 64.1069809)" .
+
+volcano:point_356273311
+    geo:asWKT "Point(-22.0044676 64.1148065)" .
+
+volcano:point_367355579
+    geo:asWKT "Point(-18.6484467 66.092373)" .
+
+volcano:point_368219018
+    geo:asWKT "Point(-21.7667615 65.1098437)" .
+
+volcano:point_370816158
+    geo:asWKT "Point(-20.5071824 64.1157558)" .
+
+volcano:point_372918152
+    geo:asWKT "Point(-22.6840812 63.9339669)" .
+
+volcano:point_378506691
+    geo:asWKT "Point(-21.8321626 64.2401735)" .
+
+volcano:point_378511138
+    geo:asWKT "Point(-21.6866919 64.1825485)" .
+
+volcano:point_382150436
+    geo:asWKT "Point(-21.7029548 64.1706421)" .
+
+volcano:point_385015243
+    geo:asWKT "Point(-21.5623868 64.5427085)" .
+
+volcano:point_415505632
+    geo:asWKT "Point(-20.4503515 64.276883)" .
+
+volcano:point_421609805
+    geo:asWKT "Point(-22.3817408 63.9804114)" .
+
+volcano:point_423830056
+    geo:asWKT "Point(-21.9488428 64.1526504)" .
+
+volcano:point_52099005
+    geo:asWKT "Point(-15.3359356 66.1981395)" .
+
+volcano:point_52140910
+    geo:asWKT "Point(-15.9509426 66.4529957)" .
+
+volcano:point_52991187
+    geo:asWKT "Point(-16.4466147 66.3009478)" .
+
+volcano:point_59860048
+    geo:asWKT "Point(-14.8302529 65.7532543)" .
+
+volcano:point_59861224
+    geo:asWKT "Point(-14.2820953 64.655775)" .
+
+volcano:point_59861511
+    geo:asWKT "Point(-19.0055917 63.418879)" .
+
+volcano:point_59864601
+    geo:asWKT "Point(-21.0026789 63.9358642)" .
+
+volcano:point_59864605
+    geo:asWKT "Point(-21.1868303 63.9975943)" .
+
+volcano:point_60472743
+    geo:asWKT "Point(-18.0418385 63.7929032)" .
+
+volcano:point_60481931
+    geo:asWKT "Point(-21.9399487 64.1473169)" .
+
+volcano:point_60654105
+    geo:asWKT "Point(-18.6474965 66.071806)" .
+
+volcano:point_60654107
+    geo:asWKT "Point(-18.531095 65.9716262)" .
+
+volcano:point_60741085
+    geo:asWKT "Point(-23.1193541 66.0726918)" .
+
+volcano:point_60741640
+    geo:asWKT "Point(-21.669196 65.706497)" .
+
+volcano:point_61365704
+    geo:asWKT "Point(-18.9055848 66.1514335)" .
+
+volcano:point_65295844
+    geo:asWKT "Point(-19.6385795 65.7443213)" .
+

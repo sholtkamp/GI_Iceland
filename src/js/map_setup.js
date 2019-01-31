@@ -3,17 +3,25 @@ let map = L.map('map_div', {zoomControl: false});
 map.setView([64.759782, -18.423403], 6.4);
 
 //add tile layer to map
-let map_layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+
+var mapLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 
-map.addLayer(map_layer);
+map.addLayer(mapLayer);
 
 // add zoom control in right top corner
 L.control.zoom({
     position: 'topright'
 }).addTo(map);
 
+//add location finder
+var lc = L.control.locate({
+  position: 'topleft',
+  strings: {
+    setView: "once"
+  }
+}).addTo(map);
 
 // add search in top left corner
 map.addControl(new L.Control.Search({
@@ -26,6 +34,7 @@ map.addControl(new L.Control.Search({
     autoType: false,
     minLength: 2
 }));
+
 
 //add location finder
 let lc = L.control.locate({
@@ -220,3 +229,14 @@ let _createPolylineFeaturen = (entry) => {
     console.log(geojsonFeature);
     return geojsonFeature;
 };
+
+
+var overlayMaps = {
+  "Cities" : placeLayer,
+  "Volcanos" : volcanoLayer,
+  "Waterbodies" : waterLayer,
+  "Natural Features" : natureLayer,
+}
+
+L.control.layers(mapLayer).addTo(map);
+
