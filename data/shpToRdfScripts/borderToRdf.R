@@ -1,3 +1,4 @@
+#loading required packages
 library(rgdal)
 library(rdflib)
 library(dplyr)
@@ -5,13 +6,19 @@ library(tidyr)
 library(tibble)
 library(jsonld)
 
+#reading in the shapefile with gdal (path needed)
 shape = readOGR("path to shapefile")
+#converting the shapefile to a data frame
 shapeDF = as.data.frame(shape)
+#creating a matrix with only the polygons with coordinates
 m = matrix(0,nrow = length(shape@polygons[[1]]@Polygons),ncol=2)
 m = data.frame(m)
+#editing the column names of the new data frame
 colnames(m)[1] = "id"
 colnames(m)[2] = "coords"
+#intitialise the rdf object
 rdf = rdf()
+#defining the linked vocabularies
 base = "http://gadm.geovocab.org/ontology#"
 geo = "http://www.opengis.net/ont/geosparql#"
 volcano =  "http://course.geoinfo2018.org/g1#"
@@ -21,7 +28,9 @@ counter = 1
 dataframeCounter = 1
 l = 0
 
+#select a subset of the data frame with only polygons
 x = shape@polygons[[1]]@Polygons
+#for loop to edit the data frame in a way the coordinates are added in a geosparql accepted way
 for(j in x){
   y = apply(j@coords,1,paste)
   while(l<length(y)/2){
@@ -42,6 +51,7 @@ for(j in x){
   dataframeCounter = dataframeCounter + 1
 }
 
+#for loop to add triples to the rdf object
 for(i in shapeDF$ID_0)
 {
   rdf %>%
@@ -76,4 +86,5 @@ for(i in shapeDF$ID_0)
   }
 }
 
+#serialize the rdf object to the turtle format with the required namespaces
 rdf_serialize(rdf, "path to result .ttl", format = "turtle", namespace = c(gadm = "http://gadm.geovocab.org/ontology#",geo = "http://www.opengis.net/ont/geosparql#", xsd = "http://www.w3.org/2001/XMLSchema#", volcano =  "http://course.geoinfo2018.org/g1#"))
